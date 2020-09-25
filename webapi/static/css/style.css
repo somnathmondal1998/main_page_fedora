@@ -1,0 +1,125 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgb(229, 233, 12);
+  color: rgb(20, 11, 2);
+  text-align: center;   
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+body{
+        margin: 0;
+        padding: 0;
+        font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+        background:url(" ");
+        background-size: cover;
+}
+.box{
+        background: rgba(13, 50, 112,1);
+        color: #0d3270;
+        width: auto;
+        height: auto;
+        top: 10%;
+        left: 40%;
+        transform: translate(-50%  -50%);
+        position: absolute;
+        padding: 50px 30px;
+        height: auto;
+}
+.outbox{
+        background: rgb(244, 245, 246);
+        color: #f1f4f8;
+        width: 500px;
+        height: 600px;
+        top: 10%;
+        left: 40%;
+        transform: translate(-50%  -50%);
+        position: absolute;
+        padding: 50px 30px;
+}
+
+h1 {
+margin: 0;
+        padding: 0;
+        font-weight: bold;
+        color: #00000;
+}
+h2{
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+ color: #FFFFFF;
+
+}
+.box p{
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+        color: #FFFFFF;
+
+}
+.box input{
+        width: 100%;
+        margin-bottom: 20px;
+}
+.box input[type="text"],
+.box input[type="password"]
+{
+        border: none;
+        border-bottom: 1px solid #FFFFFF;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color: #FFFFFF;
+        font-size: 16px;
+}
+::placeholder{
+        color: rgba(255,255,255,.5);
+}
+        .box input[type="submit"]
+        {
+           border: :none;
+                outline: none;
+                height: 40px;
+                font-size: 18px;
+                corsor: pointer;
+                 border-radius: 20px;
+        }
+        a{
+                text-decoration: none;
+                color: #FFFFFF;
+
+        }
+        }
+}
+}

@@ -1,0 +1,32 @@
+
+
+{% load static %}
+<html>
+<head>
+        {% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+</script>
+
+</script>
+        <div class="outbox">
+         <img src="{% static 'img/zdetective.png' %}" width="100" height="100" class="center" >
+        <h2> {% if whois_score == 0 %} 
+        <font color=red> Domain Does not  exist Whois Database Score: {{whois_score}} <font><br>
+           {%else%}
+           <font color=green> Domain  Exists in Whois Database & Score: {{whois_score}} </font><br>
+           {%endif%}</h2>
+           <h2> {% if spf_score == 0 %} 
+        <font color=red> Domain NOT Present in SPF & Score: {{spf_score}} <font><br>
+           {%else%}
+           "<font color=green> Domain  Present in SPF & Score: {{spf_score}} </font>"<br>
+           {%endif%}</h2>
+         
+ </div>
+
+</body>
+</html>
