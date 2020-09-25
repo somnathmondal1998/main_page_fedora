@@ -1,0 +1,93 @@
+<html>
+<head>
+<style>
+li {
+font-size: 120%;
+}
+h1 {
+text-align: center;
+}
+</style>
+<title>Assignment_2</title>
+</head>
+<h1>Assignment 2</h1>
+<body>
+<ol>
+<li> Print " Welcome to day 2 session " on default stdout device.</li>
+	<p>Command:<br>
+‘echo “Welcome to day 2 session”’</p>
+
+
+<li> Print " Today is Tuesday" on a file and print back the same on stdout.</li>
+	<p>Command:<br>
+‘cat > file’<br>
+‘Today is Tuesday(control+d)’<br>
+‘cat file’</p>
+
+
+<li>Read " 100" into a variable and print it on default stdout device.</li>
+	<p>Command:<br>
+‘read num; echo $num’</p>
+
+
+<li>What is the difference while storing "100" into a variable and printing it back.</li>
+
+<p>When we store “100” in a variable it assign a memory address, which can be used in future as our requirement. But in the case of printing it is not store anywhere, so we can’t use it in future.</p>
+
+
+<li>Create 5 empty files and show the latest file in ascending or descending order.<li>
+	<p>Command:<br>
+‘touch file1 file2 file3 file4 file5’<br>
+
+‘ls -t’</p>
+
+
+<li>Create below structure of .
+Kurukshtra_Training
+<br>create a folder Kurukshtra_Training/Linux/Os_Overview <br>
+create a folder Kurukshtra_Training/Linux/Linux_Voyage/Day1 to   Kurukshtra_Training/Linux/Linux_Voyage/Day2 Kurukshtra_Training/Linux/Linux_Voyage/Day1 in one command <br>
+create a folder Kurukshtra_Training/Languag/Python <br>
+create a folder Kurukshtra_Training/Php <br>
+create a folder Kurukshtra_Training/RDBMS/mysql Kurukshtra_Training/RDBMS/Postgresql </li>
+<p>Command:<br>
+‘mkdir ~/Kurukshtra_Training ;mkdir -p ~/Kurukshtra_Training/Linux/Os_Overview ;mkdir -p ~/Kurukshtra_Training/Linux/Linux_Voyage/Day1 ;mkdir -p ~/Kurukshtra_Training/Linux/Linux_Voyage/Day2 ;mkdir -p ~/Kurukshtra_Training/Languag/Python ;mkdir -p ~/Kurukshtra_Training/Php ;mkdir -p ~/Kurukshtra_Training/RDBMS/mysql ;mkdir -p ~/Kurukshtra_Training/RDBMS/Postgresql’</p>
+
+
+
+
+<li>Change direcotry and reach to Postgresql folder. </li>
+	<p>Command:<br>
+‘cd ~/Kurukshtra_Training/RDBMS/Postgresql’</p>
+
+
+<li>List whats there under Kurukshtra_Training/Linux/ using relative path</li>
+	<p>Command:<br>
+‘tree ../../Linux’</p>
+
+
+<li>List whats there under Kurukshtra_Training/Linux/Linux_Voyage using absolute path </li>
+	<p>Command:<br>
+‘tree ~/ Kurukshtra_Training/Linux/Linux_Voyage’</p>
+
+
+<li>Change directoty to Linux_Voyage folder create a folder Kurukshtra_Training/Linux/Linux_Voyage/Day3 Kurukshtra_Training/Linux/Linux_Voyage/Day4 using relative path.</li>
+	<p>Command:<br>
+‘cd ../../Linux/Linux_Voyage’<br>
+
+‘mkdir Day3 ; mkdir Day4’</p>
+
+
+<li>Under Day4 create 4 empty files names . ps.txt grep.txt egrep.txt head.txt and show proof that they are empty files.</li>
+	<p>Command:<br>
+‘touch .ps.txt grep.txt egrep.txt head.txt’<br>
+
+‘ls -s -a’</p>
+
+<li>Create a basic password command sets which will ask for a password , at the time of input the password will not be visible. After password is take as input print the input on default stdout and also store it on a file. Show the proof that password is saved in a file.</li>
+	<p>Command:<br>
+
+‘echo "Enter Password"; touch password.txt ; stty -echo; read password; echo $password >> password.txt ;stty echo ; echo "Password saved”’<br>
+‘cat password.txt’</p>
+</ol>
+</body>
+</html>

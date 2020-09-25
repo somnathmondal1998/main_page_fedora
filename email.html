@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+        <link rel="stylesheet" type="text/css" href='css/style.css'>
+</head>
+
+<body><script>
+function validateEmail(hackemail){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(hackemail.value) == false)
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
+</script>
+        <div class="box">
+         <h2>  FrInvestigator </h2>
+         '
+                <form action="" name="hackahton">
+                        <p>Vendorname: <input type="text" placeholder="Enter VendorId" required>
+                        <p>EmailId:<input name="hackemail" type="text" placeholder="Enter EmailId" required onblur="validateEmail(this);"></p></pre>
+                        <p>Vendorclaimnumber</p>
+                        <input type="Text" placeholder="Enter Claim Number" required maxlength="10" pattern="\d{10}" >
+                        <p> Vendornumber </p>
+                        <input type="text" placeholder="Enteri Vendor Number" required>
+                        <input type="submit" value="Validate">
+
+                </form>
+
+
+
+        </div>
+        <script>
+        function myFunction() {
+          var x = document.getElementById("Q4");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+
+
+</body>

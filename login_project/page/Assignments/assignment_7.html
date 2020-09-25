@@ -1,0 +1,170 @@
+<html>
+<head>
+  <title>Assignment_7</title>
+  <style>
+  li {
+   font-size: 130%;
+   #text-decoration:underline;
+   Margin:50px;
+  }
+  h1 {
+   text-align: center;
+  }
+  p {
+   Margin:50px;
+  }
+  pre {
+    margin:60px;
+    font-family: "courier new";
+  }
+  span {
+  font-size:20px;
+  }
+  div {
+    display:none;
+
+  }
+  button {
+    background-color: lightblue;
+  }
+  </style>
+</head>
+<body>
+<ol>
+ <li> AmericaNiche Academy  is Hiring 15 new joinees  whose user id is determined to be trainee1...trainer 15.
+  Create a file to  embed the training usernames as row. Write a script to get the user data from the file.
+  Generate  the encrypted random password for each user and create the user. Append the password,username in userdatabasefile.csv.
+  Extend the Script to  autovalidate  by using "ssh 'created username'@127.0.0.1 ls -a".  Password to be sent using command line and varification should  be seemless.
+  once user validaton is  done . It  shoudl open the userdatabasefile and append a on a new Column "Validated" after each user.
+ </li>
+ <button onclick="myFunction1()" style="margin-left:50px">Show the answer / Hide</button>
+ <div id="Q1">
+<p>To make users:</p>
+ <pre>
+#!/bin/bash
+
+touch ~/Assignments/7/user.txt
+for i in {1..14}
+do
+ echo tranee$i >> ~/Assignments/7/user.txt
+done
+</pre>
+<p>To make ramdom passwords:</p>
+<pre>
+#!/bin/bash
+
+ranpass(){
+	< /dev/urandom tr -dc _A-Z-a-z-0-9 |head -c${1:-16} ;echo;
+}
+touch ~/Assignments/7/password.txt
+for i in {1..14}
+do
+  ranpass >> ~/Assignments/7/password.txt
+done
+</pre>
+<p>To add users:</p>
+<pre>
+#! /bin/bash
+
+for i in {1..14}
+do
+  user=`awk NR==$i ~/Assignments/7/user.txt`
+  echo $user
+  password=`awk NR==$i ~/Assignments/7/password.txt`
+  useradd $user
+  echo $password |passwd $user --stdin
+done
+</pre>
+<p>For validation:</p>
+<pre>
+
+#!/bin/bash
+
+touch ~/Assignments/7/validity.txt
+for i in {1..14}
+do
+  password=`awk NR==$i ~/Assignments/7/password.txt`
+  echo exit |sshpass -p $password ssh -tt tranee$i@192.168.56.107
+  echo valid >> ~/Assignments/7/validity.txt
+done
+paste ~/Assignments/7/user.txt ~/Assignments/7/password.txt ~/Assignments/7/validity.txt >> ~/Assignments/7/userdatabase.csv
+</pre>
+ </div>
+ <li> Americaniche Academy wants to  build a menu driven password change script/turned as useful software .
+   The  menu will  be  having one option enter the username:   at coordinates 15,20 on the screen.
+   Company policy is that they will change paassword to  the same what it was initially  provided.
+   Trainer14 on one morning feels he is not able to loging to the system with given password.
+   Write a script to  put the username which will check if its present in your  bulk  validated userdatabasefile.csv
+	 if it finds then it resets  with the old password , use the validation script using ssh techinique and
+	 finaly print the password on the screen so that system admin can copy and send him back then password via email
+ </li>
+ <button onclick="myFunction2()" style="margin-left:50px">Show the answer / Hide</button>
+ <div id="Q2">
+ <pre>
+
+ </pre>
+ </div>
+ <li>After a while a situation arises when on the same day  trainer5  wanted to  reset their password.
+   System admin decided to  enhance the script in such a way that it can accomodate multiple user password reset sequentialy (one by one) .
+   He decided to keep on  reseting pasword with one originally created  unless there is a choice  which stops the script.
+   Here also after each changes se the validation script using ssh techinique and prints on screen
+ </li>
+ <button onclick="myFunction3()" style="margin-left:50px">Show the answer / Hide</button>
+ <div id="Q3">
+ <pre>
+
+ </pre>
+ </div>
+ <li>Latter management decides that user  bulk password changing technique is  to  be faster  and non interactive.
+  Write the script to address same through your own apporach.
+  trainer1.. tainer7 wantes password reset to  original one . here also after each changes se the validation script using ssh techinique and prints on screen.
+ </li>
+ <button onclick="myFunction4()" style="margin-left:50px">Show the answer / Hide</button>
+ <div id="Q4">
+ <pre>
+
+ </pre>
+ </div>
+</ol>
+</body>
+<script>
+function myFunction1() {
+  var x = document.getElementById("Q1");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction2() {
+  var x = document.getElementById("Q2");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction3() {
+  var x = document.getElementById("Q3");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction4() {
+  var x = document.getElementById("Q4");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+</html>

@@ -1,0 +1,283 @@
+<html>
+<head>
+<style>
+li {
+ font-size: 130%;
+ #text-decoration:underline;
+ Margin:50px;
+}
+h1 {
+ text-align: center;
+}
+p {
+ Margin:50px;
+}
+pre {
+  margin:60px;
+  font-family: "courier new";
+}
+span {
+font-size:20px;
+}
+div {
+  display:none;
+
+}
+button {
+  background-color: lightblue;
+}
+</style>
+<title>Assignment_6</title>
+</head>
+<body>
+
+<h1>Assignment 6</h1>
+<ol>
+<li>Write a small script to take two inputs from command line parameter as 5 and 6. Upon execution the script show the same values.</li>
+<button onclick="myFunction1()" style="margin-left:50px">Show the answer / Hide</button>
+<div id="Q1">
+<pre>
+  echo "$1, $2"
+</pre>
+</div>
+<li>Modify above script by changing values to 10 and 12 inside the script . i.e. you will pass 5,6 but it will print 10 12.</li>
+<button onclick="myFunction2()" style="margin-left:50px;">Show the answer / Hide</button>
+<div id="Q2">
+<pre>
+    echo "10 12"
+</pre>
+</div>
+<li>Write a script to take input one input from command line parameter as 8 and one from keyboard . Add the values in scripts and show on screen.</li>
+<button onclick="myFunction3()" style="margin-left:50px">Show the answer / Hide</button>
+<div id="Q3">
+<pre>
+  echo "Enter a value :"
+  read num
+  sum=$(($1+num))
+  echo "$1 + $num = $sum"
+</pre>
+</div>
+<li>Save the above script into a new script perform the same but this time the it should generate generate a add.csv file with taken inputs and its total.</li>
+<button onclick="myFunction4()" style="margin-left:50px">Show the answer / Hide</button>
+<div id="Q4">
+<pre>
+  echo "Enter a value :"
+  read num
+  sum=$(($1+num))
+  echo "$1 + $num = $sum"
+  touch ~/File/Assignment/6/add.csv
+  echo "$1,$num,$sum" > ~/File/Assignment/6/add.csv
+</pre><br>
+<img></img>
+</div>
+<li>Write the above script in such a way that if you execute the script then it keep on appending values inside the csv file. Grow he csvfile file to atleast have 10 rows with same or different dataset.</li>
+<button onclick="myFunction5()" style="margin-left:50px">Show the answer / Hide</button>
+<div id="Q5">
+<pre>
+for ((i=0; i<10; i++))
+do
+ echo "Enter a value :"
+ read num
+ sum=$(($1+num))
+ echo "$1 + $num = $sum"
+ echo "$1,$num,$sum" >> ~/File/Assignment/6/add.csv
+done
+</pre>
+</div>
+<li>Write a script to choose 5th line of the csv file , take 2 input values and create another csv file with same inputs and its multiplication values.(multiplication.csv),</li>
+<button onclick="myFunction6()" style="margin-left:50px">Show the answer / Hide</button>
+<div id="Q6">
+<pre>
+  num1=`awk 'NR==5' ~/File/Assignment/6/add.csv |cut -f2 -d","`
+  num2=`awk 'NR==5' ~/File/Assignment/6/add.csv |cut -f3 -d","`
+  mul=$(( num1*num2 ))
+  touch ~/File/Assignment/6/multiplication.csv
+  echo "$num1,$num2,$mul" > ~/File/Assignment/6/multiplication.csv
+  </pre>
+</div>
+<li>Write a script to choose 8th line from add.csv and 1st line of multiplication. take input as last field of tboth file , generate a csv file with 2 inputs values and its division value.(division.csv).</li>
+<button onclick="myFunction7()" style="margin-left:50px">HShow the answer / Hide</button>
+<div id="Q7">
+<pre>
+  num1=`awk 'NR==8' ~/File/Assignment/6/add.csv |cut -f3 -d ","`
+  num2=`awk 'NR==1' ~/File/Assignment/6/multiplication.csv |cut -f3 -d ","`
+  div=`expr $num1/$num2`
+  echo "$num1 / $num2 =$div"
+  touch ~/File/Assignment/6/division.csv
+  echo "$num1,$num2,$div" > ~/File/Assignment/6/division.csv
+</pre>
+</div>
+<li>Write a script to take command line paramter as calculator 1 + 2 and check if its a + between 2 values then print the addition</li>
+<button onclick="myFunction8()" style="margin-left:50px">Show the answer / Hide</button>
+<div id="Q8">
+<pre>
+  if [ $2 == "+" ]
+  then
+      echo "$(($1+$2))"
+  else
+      echo "Invalid input"
+  fi
+</pre>
+</div>
+<li>Enhance the script to check if its + then add if its - then substract ,if * then multiply or / then devide.</li>
+<button onclick="myFunction9()" style="margin-left:50px">Show the answer / Hide</button>
+<div id="Q9">
+<pre>
+  if [ $2 == "+" ]
+  then
+      echo "$(($1+$2))"
+  elif [ $2 == "-" ]
+  then
+      echo "$(($1-$3))"
+  elif [ $2 == "*" ]
+  then
+      echo "$(($1*$3))"
+  elif [ $2 == "/" ]
+  then
+      echo "(($1/$3))"
+  else
+      echo "Invalid input"
+  fi
+</pre>
+</div>
+<li>write a script to take 3rd line fro add.csv and also 1st line from multiplication.csv compare the fields and provide the report . if all values are equal in both file then you can print both file have same value else print the file which has greater values with values.</li>
+
+<button onclick="myFunction10()" style="margin-left:50px">Show the answer / Hide</button>
+<div id="Q10">
+<pre>
+  #!/bin/bash
+  m1=`awk 'NR==1' ~/File/Assignment/6/multiplication.csv |cut -f1 -d ","`
+  m2=`awk 'NR==1' ~/File/Assignment/6/multiplication.csv |cut -f2 -d ","`
+  m3=`awk 'NR==1' ~/File/Assignment/6/multiplication.csv |cut -f3 -d ","`
+  a1=`awk 'NR==3' ~/File/Assignment/6/add.csv |cut -f1 -d ","`
+  a2=`awk 'NR==3' ~/File/Assignment/6/add.csv |cut -f2 -d ","`
+  a3=`awk 'NR==3' ~/File/Assignment/6/add.csv |cut -f3 -d ","`
+  if [ $m1 == $a1 -a $m2 == $a2 -a $m3 == $a3 ]
+  then
+      echo "Result::Both feilds are same."
+  else
+      echo "Result::Both feilds are not same."
+      m=( $m1 $m2 $m3 )
+      a=( $a1 $a2 $a3 )
+      for((i=0;i<3;i++))
+      do
+        echo -n "In $(($i+1)) th feild:: "
+        if [ ${m[$i]} -gt ${a[$i]} ]
+        then
+            echo "multiplication.csv has greater value.( multiplication.csv-> ${m[$i]} and add.csv-> ${a[$i]} )"
+        elif [ ${m[$i]} == ${a[$i]} ]
+        then
+            echo "Both have same value.( multiplication.csv-> ${m[$i]} and add.csv-> ${a[i]} )"
+        else
+            echo "add.csv has greater value.( multiplication.csv-> ${m[$i]} and add.csv-> ${a[i]} )"
+        fi
+      done
+  fi
+</pre>
+</div>
+
+
+</ol>
+<script>
+function myFunction1() {
+  var x = document.getElementById("Q1");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction2() {
+  var x = document.getElementById("Q2");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction3() {
+  var x = document.getElementById("Q3");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction4() {
+  var x = document.getElementById("Q4");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction5() {
+  var x = document.getElementById("Q5");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction6() {
+  var x = document.getElementById("Q6");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction7() {
+  var x = document.getElementById("Q7");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction8() {
+  var x = document.getElementById("Q8");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction9() {
+  var x = document.getElementById("Q9");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function myFunction10() {
+  var x = document.getElementById("Q10");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<html>
+<head>
+<style>
+table {
+Font-family:;
+Border-collapse: collapse;
+With: 100%;
+}
+
+td, th {
+  border: 1px solid RGB(0,0,0);
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+li {
+font-size: 120%;
+margin:50px;
+}
+h1 {
+text-align:center;
+
+}
+p {
+margin:50px;
+}
+</style>
+<title>Assignment_1</title>
+</head>
+<h1 #style="text-align:center"> Assignment 1 </h1>
+<ol>
+<li>Find out binary code of Z,D,),!@ </li>
+<p>
+<table>
+  <tr>
+    <th>Code</th>
+    <th>ASCII</th>
+    <th>Powers of two</th>
+    <th>Bianary code</th>
+  </tr>
+  <tr>
+    <td>Z</td>
+    <td>90</td>
+    <td>64+16+8+2</td>
+    <td>1011010</td>
+  </tr>
+  <tr>
+    <td>D</td>
+    <td>68</td>
+    <td>64+4</td>
+    <td>1000100</td>
+  </tr>
+  <tr>
+    <td>)</td>
+    <td>41</td>
+    <td>32+8+1</td>
+    <td>101001</td>
+  </tr>
+  <tr>
+    <td>!</td>
+    <td>33</td>
+    <td>32+1</td>
+    <td>1000001</td>
+  </tr>
+  <tr>
+    <td>@</td>
+    <td>64</td>
+    <td>64</td>
+    <td>10000000</td>
+  </tr>
+  
+</table>
+</p>
+<li>Define what is Shell.</li>
+<p>Kernel is the core component for any operating system.<br> Mainly, kernel is the component in the operating system which controls the bare hardware. Any program run in operating system to control any hardware it go to the kernel to execute that. In roughly talk any software which need any hardware control it will go first to the kernel.</p>
+<li>Figure out which shell you are setting in.</li>
+<p>Command:<br>‘ps -p $$’: It display my current shell name reliably<br>‘echo ‘$SHELL’: </p>
+<li>Figure out which filesystem folder contains the shell “bash”</li>
+<p>	Command:<br>
+‘which bash’</p>
+<li>Print host name from environment variable.</li>
+<p>	Command:<br>‘env | grep “HOSTNAME”’<br>‘echo $HOSTNAME’</p>
+<li>Print the shell from environment variable.</li>
+<p>	Command:<br>‘env | grep “SHELL”’<br>‘echo $SHELL’</p>
+<li>Create a folder as test/test1/test1_1/test1_1_1 in one command.</li>
+<p>Command:<br>‘env | grep “SHELL”</p>
+<li>Show an example of reading from a file and appending same content into a file in same command.</li>
+<p>Command:<br>‘cat < first_file >> second_file’</p>
+</ol>
+</body>
+</html>
